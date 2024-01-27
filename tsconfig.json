@@ -26,6 +26,6 @@
         },
         "types": ["cypress", "@types/react"],
     },
-    "include": ["src"],
+    "include": ["src", "styled.d.ts"],
     "references": [{ "path": "./tsconfig.node.json" }],
 }

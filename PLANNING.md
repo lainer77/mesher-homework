@@ -37,10 +37,11 @@
 ## 디자인 시스템 구축
 
 1. 기초작업
-    - <https://app.uniswap.org/swap?chain=mainnet>에서 컬러값 추출해서 팔레트 작성.
+    - <https://app.uniswap.org/swap?chain=mainnet>에서 컬러값 추출해서 팔레트 작성. (컬러 모르겠는 건 임으로 지정함)
     - 폰트 사이즈 정의.
     - layer 층 설정(z-index). 예전에 개발면서 참 재밌는 코드를 봤는데. z-index를 설정해서 배찌랑 모달 화면 위에 올라오는 컴포넌트 여러개가 중복해서 뜨는 화면이었는데 서로 어떻게든 자기가 만든 컴포넌트가 최고로 앞에 보여주기 위해 9999로 설정해 두고 그걸 뛰어넘기 위해 9999999하고 또 그걸 뛰어넘기 위해 999999999 이런식으로 파워인플레 마냥 한없이 높아지는 걸 봤었는데 그걸 방지하려면 각 층별로 용도에 맞는 z-index를 미리 정의해두는 게 좋다는 생각이 들었던 적이 있었습니다.
     - styled-components 프로바이더 설정 후 theme 전달.
+    - Theme로 styled-components의 DefaultTheme를 declare. styled 컴포넌트 작성시 전달된 theme에서 손쉽게 사용이 가능해집니다.
 2. 기초 컴포넌트 제작
     - 모든 스펙을 구현할 순 없어서 필요한 것들 몇개만 만들기
     - Typography, Button, Modal, Popover, Flex, TextField 정도만 만들어주면 좋을 것 같다.
