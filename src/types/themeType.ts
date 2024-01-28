@@ -9,6 +9,8 @@ export interface ColorStyledProps {
     $color: CSSObject['color'] | ColorsKey;
 }
 export interface LayoutStyledProps {
+    $border: CSSObject['border'];
+    $borderRadius: CSSObject['borderRadius'];
     $gap: CSSObject['gap'];
     $height: CSSObject['height'];
     $margin: CSSObject['margin'];
@@ -25,6 +27,11 @@ export interface LayoutStyledProps {
     $width: CSSObject['width'];
 }
 export interface FontStyledProps {
+    /**
+        medium: '14px',
+        large: '16px',
+        xlarge: '20px',
+        xxlarge: '24px' */
     $fontSize: CSSObject['fontSize'];
     $fontWeight: CSSObject['fontWeight'];
     $lineHeight: CSSObject['lineHeight'];
@@ -47,6 +54,7 @@ export interface FlexStyledProps {
     $flex?: CSSObject['flex'];
     $flexDirection?: CSSObject['flexDirection'];
     $flexType?: FlexTypeUnion;
+    $flexWrap?: CSSObject['flexWrap'];
     $justifyContent?: CSSObject['justifyContent'];
 }
 export type FlexType = {

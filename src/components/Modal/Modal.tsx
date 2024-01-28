@@ -2,7 +2,7 @@ import { useLayoutEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 import { ModalProps } from './Modal.interfaces';
-import { ModalStyled } from './Modal.styled';
+import { ModalStyled, OverlayStyled } from './Modal.styled';
 
 function createWrapperAndAppendToBody(wrapperId: string): HTMLElement {
     const rootElement = document.querySelector('#root');
@@ -16,31 +16,27 @@ export default function Modal({ children, isOpen = false, layer, style }: ModalP
     const [wrapperElement, setWrapperElement] = useState<HTMLElement | null>(null);
 
     useLayoutEffect(() => {
-        if (!isOpen) return;
+        if (wrapperElement) return;
 
         const wrapperId = 'root-portal';
         let element = document.getElementById(wrapperId);
-        let systemCreated = false;
 
         if (!element) {
-            systemCreated = true;
             element = createWrapperAndAppendToBody(wrapperId);
         }
         setWrapperElement(element);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
-        return () => {
-            if (systemCreated && element && element.parentNode) {
-                element.parentNode.removeChild(element);
-            }
-        };
-    }, [isOpen]);
-
-    if (!isOpen || wrapperElement === null) return null;
+    if (wrapperElement === null) return null;
 
     return createPortal(
-        <ModalStyled layer={layer} style={style}>
-            {children}
-        </ModalStyled>,
+        <>
+            {isOpen && <OverlayStyled layer={layer} />}
+            <ModalStyled layer={layer} style={style}>
+                {children}
+            </ModalStyled>
+        </>,
         wrapperElement
     );
 }

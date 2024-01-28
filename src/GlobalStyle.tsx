@@ -27,11 +27,12 @@ const GlobalStyle = styled.createGlobalStyle`
     body,
     html {
         min-height: 100%;
+        height: 100%;
     }
     #root-portal {
-        *::-webkit-scrollbar {
+        /* *::-webkit-scrollbar {
             display: none;
-        }
+        } */
     }
 `;
 

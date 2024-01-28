@@ -20,8 +20,9 @@ export const cssStyles: StyleFunction<CSSObject> = (props) =>
     );
 export const colorStyled = css<Partial<ColorStyledProps>>`
     && {
-        color: ${({ $color, theme }) =>
-            $color ? theme.colors[$color as ColorsKey] || $color : undefined};
+        color: ${({ $color, theme }) => {
+            return $color ? theme.colors[$color as ColorsKey] || $color : undefined;
+        }};
         background-color: ${({ $backgroundColor, theme }) =>
             $backgroundColor
                 ? theme.colors[$backgroundColor as ColorsKey] || $backgroundColor

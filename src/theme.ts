@@ -16,7 +16,8 @@ const theme = {
             scrim: 'rgba(0,0,0,0.60)',
             success: '#40b66b',
             critical: '#ff5f52',
-            white: '#FFFFFF',
+            white: '#131313',
+            swap: '#1b1b1b', // 임의의 색상 값
             gold: '#b17900',
             violet: '#7a7beb',
             shadowDrop: '0px 4px 16px rgba(251,17,142,0.4)',
@@ -38,7 +39,8 @@ const theme = {
             scrim: 'rgba(0,0,0,0.80)', // scrim의 opacity를 다크 모드에 맞게 조정
             success: '#3da66b', // 임의의 색상 값
             critical: '#e55f52', // 임의의 색상 값
-            white: '#e1e1e1', // 임의의 색상 값
+            white: '#FFFFFF', // 임의의 색상 값
+            swap: '#f9f9f9', // 임의의 색상 값
             gold: '#a17900', // 임의의 색상 값
             violet: '#6a7beb', // 임의의 색상 값
             shadowDrop: '0px 4px 16px rgba(251,17,142,0.4)',
