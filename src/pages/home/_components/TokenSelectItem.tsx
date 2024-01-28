@@ -5,13 +5,15 @@ import { Token } from '~/store';
 import { TokenSelectItemStyled } from '../HomePage.styled';
 
 export default function TokenSelectItem({
+    isSelected,
     onClick,
     ...token
 }: Token & {
+    isSelected?: boolean;
     onClick: () => void;
 }) {
     return (
-        <TokenSelectItemStyled onClick={onClick}>
+        <TokenSelectItemStyled onClick={onClick} $isSelected={isSelected}>
             <Flex
                 $flex="unset"
                 $flexType="flexCenter"

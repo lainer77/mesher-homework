@@ -92,7 +92,7 @@ export const SearchTextFieldStyled = styled.input`
     transition: border 100ms ease 0s;
 `;
 
-export const TokenQuickItemStyled = styled.button<{ isSelected?: boolean }>`
+export const TokenQuickItemStyled = styled.button<{ $isSelected?: boolean }>`
     ${({ theme }) => theme.flexs.flexCenter}
     border: 1px solid rgba(255, 255, 255, 0.07);
     gap: 8px;
@@ -106,16 +106,16 @@ export const TokenQuickItemStyled = styled.button<{ isSelected?: boolean }>`
     &:active {
         background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%), #fff;
     }
-    background: ${({ isSelected }) =>
-        isSelected &&
-        'linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%), #fff'};
+    background: ${({ $isSelected }) =>
+        $isSelected &&
+        'linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.8) 100%), #fff'};
 `;
 export const PopularTokenListStyled = styled.div`
     overflow-y: scroll;
     max-height: 100%;
     height: 100%;
 `;
-export const TokenSelectItemStyled = styled.div`
+export const TokenSelectItemStyled = styled.div<{ $isSelected?: boolean }>`
     ${({ theme }) => theme.flexs.flexCenter};
     padding: 4px 20px;
     gap: 16px;
@@ -126,6 +126,9 @@ export const TokenSelectItemStyled = styled.div`
     &:active {
         background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%), #6c6b6b;
     }
+    background: ${({ $isSelected }) =>
+        $isSelected &&
+        'linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.8) 100%), #fff'};
 `;
 export const TokenManageStyled = styled.button`
     min-height: 52px;

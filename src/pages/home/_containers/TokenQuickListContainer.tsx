@@ -4,9 +4,10 @@ import { useModalStore, useTokenStore } from '~/store';
 import TokenQuickItem from '../_components/TokenQuickItem';
 
 export default function TokenQuickListContainer() {
-    const { recentTokenList, selectToken } = useTokenStore((state) => ({
+    const { recentTokenList, selectToken, selectedToken } = useTokenStore((state) => ({
         recentTokenList: state.recentTokenList,
         selectToken: state.selectToken,
+        selectedToken: state[state.selectedType === 'A' ? 'selectedTokenA' : 'selectedTokenB'],
     }));
     const setModal = useModalStore((state) => state.setModal);
 
@@ -18,6 +19,7 @@ export default function TokenQuickListContainer() {
                 <TokenQuickItem
                     key={token.tokenId}
                     tokenName={token.tokenName}
+                    isSelected={selectedToken?.tokenId === token.tokenId}
                     onClick={() => {
                         selectToken(token);
                         setModal('tokenSelectModal', false);

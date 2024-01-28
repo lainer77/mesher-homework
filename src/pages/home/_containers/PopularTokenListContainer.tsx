@@ -4,9 +4,10 @@ import TokenSelectItem from '../_components/TokenSelectItem';
 import { PopularTokenListStyled } from '../HomePage.styled';
 
 export default function PopularTokenListContainer() {
-    const { searchText, selectToken, tokenList } = useTokenStore((state) => ({
+    const { searchText, selectToken, selectedToken, tokenList } = useTokenStore((state) => ({
         searchText: state.searchText,
         selectToken: state.selectToken,
+        selectedToken: state[state.selectedType === 'A' ? 'selectedTokenA' : 'selectedTokenB'],
         tokenList: state.tokenList,
     }));
     const setModal = useModalStore((state) => state.setModal);
@@ -21,6 +22,7 @@ export default function PopularTokenListContainer() {
                 <TokenSelectItem
                     key={token.tokenId}
                     {...token}
+                    isSelected={selectedToken?.tokenId === token.tokenId}
                     onClick={() => {
                         selectToken(token);
                         setModal('tokenSelectModal', false);
