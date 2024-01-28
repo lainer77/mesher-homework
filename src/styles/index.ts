@@ -51,3 +51,12 @@ export const flexStyled: StyleFunction<FlexStyledProps> = ({
     obj.flex = $flex;
     return css(obj);
 };
+export const childCenter = css`
+    position: fixed;
+    margin: auto;
+    display: block;
+    bottom: 0px;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+`;

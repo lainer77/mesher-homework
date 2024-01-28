@@ -30,7 +30,8 @@ export interface FontStyledProps {
     $lineHeight: CSSObject['lineHeight'];
     $textAlign: CSSObject['textAlign'];
 }
-export type IconProps = ComponentProps<'img'> & Partial<ColorStyledProps & LayoutStyledProps>;
+export type IconProps = ComponentProps<'img'> &
+    Partial<ColorStyledProps & LayoutStyledProps> & { $fill?: ColorsKey & CSSObject['fill'] };
 export type FontTypeUnion = keyof typeof theme.fontSize;
 export type FontType = typeof theme.fontSize;
 export type FlexTypeUnion =
