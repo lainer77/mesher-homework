@@ -3,6 +3,7 @@ import Button from '~/components/Button';
 import Flex from '~/components/Flex';
 import Typography from '~/components/Typography';
 import { Token } from '~/store';
+import { usdConvertAtoB } from '~/utils/usdConvert';
 
 import { SwapButton, SwapCardStyled } from '../HomePage.styled';
 import SwapSection from './SwapSection';
@@ -51,6 +52,13 @@ export default function SwapCard({
                         <Arrow2Icon />
                     </SwapButton>
                 </Flex>
+                {!actionDisabled && selectedTokenB.usd && selectedTokenA.usd ? (
+                    <Typography $color="surface1" $padding="10px">
+                        1 {selectedTokenB.tokenName} =&nbsp;
+                        {usdConvertAtoB(1, selectedTokenB.usd, selectedTokenA.usd)}&nbsp;
+                        {selectedTokenA.tokenName}&nbsp;(${selectedTokenB.usd})
+                    </Typography>
+                ) : null}
                 {/* action */}
                 <Button
                     $height="56px"
