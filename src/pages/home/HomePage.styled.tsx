@@ -115,6 +115,18 @@ export const PopularTokenListStyled = styled.div`
     max-height: 100%;
     height: 100%;
 `;
+export const TokenSelectItemStyled = styled.div`
+    ${({ theme }) => theme.flexs.flexCenter};
+    padding: 4px 20px;
+    gap: 16px;
+    height: 56px;
+    &:hover {
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%), #5f5e5e;
+    }
+    &:active {
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%), #6c6b6b;
+    }
+`;
 export const TokenManageStyled = styled.button`
     min-height: 52px;
     border: unset;

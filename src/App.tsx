@@ -3,11 +3,12 @@ import { ThemeProvider } from 'styled-components';
 
 import GlobalStyle from './GlobalStyle';
 import theme from './theme'; // theme 객체 임포트
+import { QueryClientProvider } from 'react-query';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 import HomePage from '~/pages/home/HomePage';
-
-import { useThemeStore } from './store';
+import { useThemeStore } from '~/store';
+import { queryClient } from '~/utils/queryClient';
 
 function App() {
     const { isDarkMode, setDarkMode } = useThemeStore((state) => ({
@@ -35,16 +36,18 @@ function App() {
     const currentTheme = isDarkMode ? theme.colors.dark : theme.colors.default;
 
     return (
-        <ThemeProvider theme={{ ...theme, colors: currentTheme }}>
-            <GlobalStyle />
+        <QueryClientProvider client={queryClient}>
+            <ThemeProvider theme={{ ...theme, colors: currentTheme }}>
+                <GlobalStyle />
 
-            <BrowserRouter>
-                <Routes>
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="*" element={<Navigate to="/" replace />} />
-                </Routes>
-            </BrowserRouter>
-        </ThemeProvider>
+                <BrowserRouter>
+                    <Routes>
+                        <Route path="/" element={<HomePage />} />
+                        <Route path="*" element={<Navigate to="/" replace />} />
+                    </Routes>
+                </BrowserRouter>
+            </ThemeProvider>
+        </QueryClientProvider>
     );
 }
 

@@ -5,13 +5,15 @@ import { TokenQuickItemStyled } from '../HomePage.styled';
 
 export default function TokenQuickItem({
     isSelected,
+    onClick,
     tokenName,
 }: {
     isSelected?: boolean;
+    onClick: () => void;
     tokenName: string;
 }) {
     return (
-        <TokenQuickItemStyled isSelected={isSelected}>
+        <TokenQuickItemStyled isSelected={isSelected} onClick={onClick}>
             <Flex
                 $flex="unset"
                 $flexType="flexCenter"

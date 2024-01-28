@@ -1,7 +1,7 @@
 import Modal from '~/components/Modal';
 import { useModalStore } from '~/store/modal';
 
-import TokenSelectContainer from './TokenSelectContainer';
+import TokenSelectModalContainer from './TokenSelectModalContainer';
 
 export default function ModalContainer() {
     const { modals, setModal } = useModalStore();
@@ -18,7 +18,7 @@ export default function ModalContainer() {
                     transform: 'translate(-50%, -50%)',
                 }} // 하프모달처럼
             >
-                <TokenSelectContainer
+                <TokenSelectModalContainer
                     isOpen={!!modals?.tokenSelectModal}
                     setModal={(isOpen: boolean) => setModal('tokenSelectModal', isOpen)}
                 />

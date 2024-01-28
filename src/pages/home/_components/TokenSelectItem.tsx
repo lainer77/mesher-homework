@@ -1,17 +1,17 @@
 import Flex from '~/components/Flex';
 import Typography from '~/components/Typography';
+import { Token } from '~/store';
+
+import { TokenSelectItemStyled } from '../HomePage.styled';
 
 export default function TokenSelectItem({
-    tokenFullName,
-    tokenName,
-    tokenValue,
-}: {
-    tokenFullName: string;
-    tokenName: string;
-    tokenValue: string;
+    onClick,
+    ...token
+}: Token & {
+    onClick: () => void;
 }) {
     return (
-        <Flex $flexType="flexCenter" $padding="4px 20px" $gap="16px" $height="56px">
+        <TokenSelectItemStyled onClick={onClick}>
             <Flex
                 $flex="unset"
                 $flexType="flexCenter"
@@ -22,15 +22,12 @@ export default function TokenSelectItem({
             />
             <Flex $width="100%" $flexDirection="column">
                 <Typography type="large" $color="surface1">
-                    {tokenName}
+                    {token.tokenName}
                 </Typography>
                 <Typography type="medium" $color="surface5">
-                    {tokenFullName}
+                    {token.tokenFullName}
                 </Typography>
             </Flex>
-            <Typography type="medium" $color="surface1">
-                {tokenValue}
-            </Typography>
-        </Flex>
+        </TokenSelectItemStyled>
     );
 }

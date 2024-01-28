@@ -7,5 +7,5 @@ export interface TextFieldStyledProps
 export interface TextFieldProps extends ComponentProps<'input'>, TextFieldStyledProps {
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     placeholder?: string;
-    value: string;
+    value?: string;
 }
