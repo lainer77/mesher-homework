@@ -155,8 +155,8 @@ export const useTokenStore = create<TokenStoreState>((set) => ({
                                     };
                                 }
                             }
-                            newState[selectedType] = {
-                                ...newState[selectedType],
+                            newState[type] = {
+                                ...newState[type],
                                 usd,
                             };
                             set(newState);

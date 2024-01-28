@@ -56,7 +56,7 @@ export default function SwapSection({
             </Flex>
             {token?.tokenValue && token?.usd ? (
                 <Typography type="medium" $color="surface5">
-                    ${token.tokenValue * token.usd}
+                    ${parseFloat((token.tokenValue * token.usd).toFixed(2))}
                 </Typography>
             ) : null}
         </SwapSectionStyled>
