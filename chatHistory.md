@@ -1,4 +1,5 @@
-"user": "styled-components 프로바이더와 theme를 넘겨줘야 하니까 PLANNING.md 참고해서. 폰트사이즈, color 팔레트, layer 층 넘겨줄거니까 그거 고려서 theme를 정리해줘"
+>"user": "styled-components 프로바이더와 theme를 넘겨줘야 하니까 PLANNING.md 참고해서. 폰트사이즈, color 팔레트, layer 층 넘겨줄거니까 그거 고려서 theme를 정리해줘"
+
 "assistant": "`PLANNING.md` 문서의 '디자인 시스템 구축' 섹션에 기재된 내용을 참고하여 styled-components 프로바이더 설정을 구성하고 theme 객체를 정의하겠습니다. 여기서 이야기하는 theme 객체에는 폰트 사이즈, color 팔레트, layer 층(z-index)이 포함됩니다.
 
 기본적인 theme 설정은 아래와 같이 작성할 수 있습니다:
@@ -64,7 +65,7 @@ const Title = styled.h1`
 
 위와 같이 설정을 마치면 `App.tsx`에 포함된 모든 컴포넌트들이 theme 값을 사용하여 원하는 스타일을 적용할 수 있게 됩니다."
 
-"user": "theme.ts에 주석되어 있는 걸 전부다 빠짐없이 theme로 말맞게 변경해줘. 디폴트랑 다크모드 인점을 감안해야 할거야. 그리고 네이밍이 다 이상하니까 --rgw 이런식으로 되어있는데 각자 알맞은 이름으로 변경해줘"
+>"user": "theme.ts에 주석되어 있는 걸 전부다 빠짐없이 theme로 말맞게 변경해줘. 디폴트랑 다크모드 인점을 감안해야 할거야. 그리고 네이밍이 다 이상하니까 --rgw 이런식으로 되어있는데 각자 알맞은 이름으로 변경해줘"
 "assistant": "파일 전체를 수정하는 대신, 현재 `theme.ts` 파일에서 바로 사용될 수 있도록 중요한 CSS 변수들만 추출하여 적절한 naming convention과 함께 정의하겠습니다. 다크 모드와 기본 모드(theme의 default와 dark 프로퍼티)를 구분하여 새로운 theme 객체에 적용하겠습니다.
 
 아래는 `theme.ts` 파일에 대한 수정된 코드입니다:
@@ -167,7 +168,7 @@ export default theme;
 
 위 코드에서 사용된 CSS 변수들은 색상, 폰트 사이즈, 간격(spacing), z-index, 그림자(shadows), 불투명도(opacity), 그리고 폰트(fonsts)에 대한 정보를 포함합니다. 이름은 가능한 한 의미 있는 네이밍으로 변경되었으며, 다크 모드와 기본 모드에 동일한 구조로 색상 값을 적용하되 실제 프로젝트 요구사항에 맞는 값을 설정해야 합니다. 주석 내의 값들이 실제 적용될 정확한 값인지 확인 후 적절히 수정해야 할 수도 있습니다."
 
-"user": "store/token.ts 파일에 적혀있는 요구사항대로 스토어를 생성해줘"
+>"user": "store/token.ts 파일에 적혀있는 요구사항대로 스토어를 생성해줘"
 
 "assistant": "store/token.ts 파일에 요구되는 스토어를 생성하기 위해 zustand를 사용할 수 있습니다. 다음은 요구사항에 부합하는 스토어의 함수 및 타입 정의를 포함하는 코드입니다:
 
@@ -224,7 +225,7 @@ export const useTokenStore = create<TokenStoreState>((set) => ({
 
 위 코드는 요구사항에 맞춰 초기 토큰 목록을 정의하고, 최근 토큰 목록을 로컬 스토리지에서 관리하는 기능을 구현합니다. 'addTokenToRecentList' 함수는 새로운 토큰 ID를 받아 최근 목록에 추가하고, 상태를 업데이트하며 로컬 스토리지에 반영합니다. 필요에 따라 로컬 스토리지의 키나 초기 토큰 목록에 포함될 추가 토큰 정보를 수정해야 할 수도 있습니다."
 
-"user": "initialTokenList 나머지도 전부 작성해줘"
+>"user": "initialTokenList 나머지도 전부 작성해줘"
 "assistant": "그렇다면 초기 토큰 목록 `initialTokenList`를 `token.ts` 스토어 파일에 있는 주석에 나온 모든 토큰 정보로 확장하여 완성해보겠습니다. 아래는 완성된 `initialTokenList` 및 스토어 설정 예시입니다.
 
 ```tsx
@@ -281,7 +282,7 @@ export const useTokenStore = create<TokenStoreState>((set) => ({
 
 이렇게 스토어에 정의된 `initialTokenList`는 주어진 토큰 정보를 초기값으로 가지고 있으며, 이를 바탕으로 상태를 업데이트하는 로직을 포함하고 있습니다. 추가로 토큰 정보가 변경되거나 업데이트가 필요한 경우, 이 초기 목록을 수정하여 프로젝트의 상태 관리를 진행할 수 있습니다."
 
-"user": "PLANNING.md 참고해서 테스트 코드 초안 작성해줘"
+>"user": "PLANNING.md 참고해서 테스트 코드 초안 작성해줘"
 "assistant": "describe('스왑 플로우 테스트', () => {
 beforeEach(() => {
   cy.visit('/스왑-페이지-URL'); // 여기에 실제 스왑 페이지의 URL을 입력하세요.
@@ -348,7 +349,7 @@ it('최근 토큰 목록 테스트', () => {
 });
 "
 
-"user": "home.cy.ts 에 있는 테스트 코드 초안을 보고 프로젝트 분석해서 완성시켜줘"
+>"user": "home.cy.ts 에 있는 테스트 코드 초안을 보고 프로젝트 분석해서 완성시켜줘"
 "assistant": "테스트 코드 초안을 기반으로 `home.cy.ts`에 있는 Cypress 종단 간 테스트 케이스를 분석하고 완성해보겠습니다. 우선, 데이터 테스트 아이디 `data-testid`가 각 요소에 적절히 할당되어 있어야 합니다. 다음은 완성된 테스트 케이스의 예시입니다:
 
 ```typescript
@@ -391,7 +392,7 @@ describe('스왑 플로우 테스트', () => {
 
 완성된 테스트 코드는 실제 환경에서 적절히 동작하는지 확인하기 위해 실행해봐야 하며, 실제 컴포넌트의 상태나 동작에 따라 일부 코드를 조정할 필요가 있을 수 있습니다."
 
-"user": "home.cy.ts 에 있는 테스트 코드 3, 5, 6도 마찬가지로 작업해줘"
+>"user": "home.cy.ts 에 있는 테스트 코드 3, 5, 6도 마찬가지로 작업해줘"
 "assistant": "`home.cy.ts` 파일에 있는 3번, 5번, 6번 테스트 케이스를 프로젝트의 요구사항과 디자인에 맞게 완성해보겠습니다. 실제 컴포넌트의 `data-testid` 속성을 통해 테스트 대상을 명확하게 지정해야 합니다.
 
 다음은 완성된 테스트 케이스의 예시입니다:
