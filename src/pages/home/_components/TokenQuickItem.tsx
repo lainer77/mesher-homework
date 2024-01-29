@@ -13,7 +13,11 @@ export default function TokenQuickItem({
     tokenName: string;
 }) {
     return (
-        <TokenQuickItemStyled $isSelected={isSelected} onClick={onClick}>
+        <TokenQuickItemStyled
+            data-testid={`token-select-${tokenName}`}
+            $isSelected={isSelected}
+            onClick={onClick}
+        >
             <Flex
                 $flex="unset"
                 $flexType="flexCenter"

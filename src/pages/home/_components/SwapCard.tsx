@@ -39,21 +39,23 @@ export default function SwapCard({
                 {/* body */}
                 <Flex $flexDirection="column" $gap="4px" style={{ position: 'relative' }}>
                     <SwapSection
+                        type="A"
                         onChange={(value) => selectedTokenSetValue('A', value)}
                         onTokenSelect={() => onTokenSelect('A')}
                         token={selectedTokenA}
                     />
                     <SwapSection
+                        type="B"
                         onChange={(value) => selectedTokenSetValue('B', value)}
                         onTokenSelect={() => onTokenSelect('B')}
                         token={selectedTokenB}
                     />
-                    <SwapButton onClick={selectedTokenSwap}>
+                    <SwapButton data-testid="direction-switch-button" onClick={selectedTokenSwap}>
                         <Arrow2Icon />
                     </SwapButton>
                 </Flex>
                 {!actionDisabled && selectedTokenB.usd && selectedTokenA.usd ? (
-                    <Typography $color="surface1" $padding="10px">
+                    <Typography data-testid="value-per-token" $color="surface1" $padding="10px">
                         1 {selectedTokenB.tokenName} =&nbsp;
                         {usdConvertAtoB(1, selectedTokenB.usd, selectedTokenA.usd)}&nbsp;
                         {selectedTokenA.tokenName}&nbsp;(${selectedTokenB.usd})
@@ -61,6 +63,7 @@ export default function SwapCard({
                 ) : null}
                 {/* action */}
                 <Button
+                    data-testid="swap-button"
                     $height="56px"
                     $width="100%"
                     $backgroundColor={actionDisabled ? 'swap' : 'accent2'}

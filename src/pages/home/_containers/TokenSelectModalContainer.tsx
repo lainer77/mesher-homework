@@ -24,6 +24,7 @@ export default function TokenSelectModalContainer({
     const setSearchText = useTokenStore((state) => state.setSearchText);
     return (
         <TokenSelectContainerStyled
+            data-testid="token-select-modal"
             $isOpen={isOpen}
             $isTransition={isTransition}
             onTransitionEnd={() => setTransition(false)}
@@ -35,6 +36,7 @@ export default function TokenSelectModalContainer({
                         토큰 선택
                     </Typography>
                     <CloseIcon
+                        data-testid="modal-close-button"
                         onClick={() => {
                             setModal(false);
                             setTransition(true);
@@ -42,6 +44,7 @@ export default function TokenSelectModalContainer({
                     />
                 </Flex>
                 <SearchTextFieldStyled
+                    data-testid="token-search"
                     onChange={(e) => setSearchText(e.target.value)}
                     placeholder="이름 검색 또는 주소 붙여 넣기"
                 />

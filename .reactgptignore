@@ -4,7 +4,6 @@ build/**
 .git/**
 yarn.lock
 package-lock.json
-cypress/**
 .vscode/**
 .storybook/**
 .next/**

@@ -13,10 +13,12 @@ export default function SwapSection({
     onChange,
     onTokenSelect,
     token,
+    type,
 }: {
     onChange: (value: number) => void;
     onTokenSelect: () => void;
     token: Token | null;
+    type: 'A' | 'B';
 }) {
     const [value, setValue] = useState(
         token?.tokenValue !== 0 ? token?.tokenValue?.toString() : ''
@@ -45,6 +47,7 @@ export default function SwapSection({
         <SwapSectionStyled>
             <Flex $flexType="flexCenterBetween">
                 <TextField
+                    data-testid={`swap-input-${type}`}
                     $width="70%"
                     $color="surface2"
                     $fontSize="36px"
@@ -52,10 +55,14 @@ export default function SwapSection({
                     placeholder="0.0"
                     value={value || ''}
                 />
-                <TokenSelectBox onTokenSelect={onTokenSelect} tokenName={token?.tokenName} />
+                <TokenSelectBox
+                    type={type}
+                    onTokenSelect={onTokenSelect}
+                    tokenName={token?.tokenName}
+                />
             </Flex>
             {token?.tokenValue && token?.usd ? (
-                <Typography type="medium" $color="surface5">
+                <Typography data-testid={`swap-output-${type}`} type="medium" $color="surface5">
                     ${parseFloat((token.tokenValue * token.usd).toFixed(2))}
                 </Typography>
             ) : null}

@@ -14,7 +14,7 @@ export default function TokenQuickListContainer() {
     if (!recentTokenList.length) return null;
 
     return (
-        <Flex $gap="4px" $flexWrap="wrap">
+        <Flex data-testid="recent-tokens-list" $gap="4px" $flexWrap="wrap">
             {recentTokenList.map((token) => (
                 <TokenQuickItem
                     key={token.tokenId}

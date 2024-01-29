@@ -13,7 +13,11 @@ export default function TokenSelectItem({
     onClick: () => void;
 }) {
     return (
-        <TokenSelectItemStyled onClick={onClick} $isSelected={isSelected}>
+        <TokenSelectItemStyled
+            data-testid={`token-select-${token.tokenName}`}
+            onClick={onClick}
+            $isSelected={isSelected}
+        >
             <Flex
                 $flex="unset"
                 $flexType="flexCenter"

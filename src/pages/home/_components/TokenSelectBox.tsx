@@ -5,9 +5,11 @@ import Flex from '~/components/Flex';
 export default function TokenSelectBox({
     onTokenSelect,
     tokenName,
+    type,
 }: {
     onTokenSelect: () => void;
     tokenName?: string;
+    type: 'A' | 'B';
 }) {
     return (
         <Button
@@ -17,6 +19,7 @@ export default function TokenSelectBox({
             $color="surface2"
             $backgroundColor={tokenName ? 'neutral1' : 'accent1'}
             onClick={onTokenSelect}
+            data-testid={`token-selection-${type}`}
         >
             {tokenName && (
                 <Flex
